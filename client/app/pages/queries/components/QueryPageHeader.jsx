@@ -87,7 +87,7 @@ export default function QueryPageHeader({
             isEnabled: !queryFlags.isNew && queryFlags.canFork && !isDuplicating,
             title: (
               <React.Fragment>
-                Fork
+                复制
                 <i className="fa fa-external-link m-l-5" />
               </React.Fragment>
             ),
@@ -103,19 +103,19 @@ export default function QueryPageHeader({
           managePermissions: {
             isAvailable:
               !queryFlags.isNew && queryFlags.canEdit && !queryFlags.isArchived && clientConfig.showPermissionsControl,
-            title: "Manage Permissions",
+            title: "管理权限",
             onClick: openPermissionsEditorDialog,
           },
           unpublish: {
             isAvailable: !queryFlags.isNew && queryFlags.canEdit && !queryFlags.isDraft,
-            title: "Unpublish",
+            title: "撤销发布",
             onClick: unpublishQuery,
           },
         },
         {
           showAPIKey: {
             isAvailable: !queryFlags.isNew,
-            title: "Show API Key",
+            title: "查看API密钥",
             onClick: openApiKeyDialog,
           },
         },
@@ -158,7 +158,7 @@ export default function QueryPageHeader({
           {headerExtra}
           {queryFlags.isDraft && !queryFlags.isArchived && !queryFlags.isNew && queryFlags.canEdit && (
             <Button className="hidden-xs m-r-5" onClick={publishQuery}>
-              <i className="fa fa-paper-plane m-r-5" /> Publish
+              <i className="fa fa-paper-plane m-r-5" /> 发布
             </Button>
           )}
 
@@ -167,7 +167,7 @@ export default function QueryPageHeader({
               {!sourceMode && (
                 <Button className="m-r-5" href={query.getUrl(true, selectedVisualization)}>
                   <i className="fa fa-pencil-square-o" aria-hidden="true" />
-                  <span className="hidden-xs m-l-5">Edit Source</span>
+                  <span className="hidden-xs m-l-5">编辑</span>
                 </Button>
               )}
               {sourceMode && (
@@ -176,7 +176,7 @@ export default function QueryPageHeader({
                   href={query.getUrl(false, selectedVisualization)}
                   data-test="QueryPageShowDataOnly">
                   <i className="fa fa-table" aria-hidden="true" />
-                  <span className="hidden-xs m-l-5">Show Data Only</span>
+                  <span className="hidden-xs m-l-5">仅查看</span>
                 </Button>
               )}
             </span>

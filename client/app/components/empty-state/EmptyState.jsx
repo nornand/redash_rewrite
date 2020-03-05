@@ -98,7 +98,7 @@ function EmptyState({
               completed={isCompleted.dataSource}
               url="data_sources/new"
               urlText="连接"
-              text="一个数据源"
+              text="一个数据集"
             />
           )}
           {!currentUser.isAdmin && (

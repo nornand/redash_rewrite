@@ -111,7 +111,7 @@ export default function QueryVisualizationTabs({
         type="link"
         onClick={() => onAddVisualization()}>
         <i className="fa fa-plus" />
-        <span className="m-l-5 hidden-xs">Add Visualization</span>
+        <span className="m-l-5 hidden-xs">添加可视化</span>
       </Button>
     );
   }

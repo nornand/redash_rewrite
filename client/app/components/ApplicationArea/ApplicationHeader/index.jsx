@@ -119,7 +119,7 @@ function DesktopNavbar() {
                   {currentUser.hasPermission("super_admin") && <Menu.Divider />}
                   {currentUser.isAdmin && (
                     <Menu.Item key="datasources">
-                      <a href="data_sources">数据源</a>
+                      <a href="data_sources">数据集</a>
                     </Menu.Item>
                   )}
                   {currentUser.hasPermission("list_users") && (

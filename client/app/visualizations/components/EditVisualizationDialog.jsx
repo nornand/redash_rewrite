@@ -35,11 +35,11 @@ function saveVisualization(visualization) {
 
   return Visualization.save(visualization)
     .then(result => {
-      notification.success("Visualization saved");
+      notification.success("保存成功");
       return result;
     })
     .catch(error => {
-      notification.error("Visualization could not be saved");
+      notification.error("保存失败");
       return Promise.reject(error);
     });
 }
@@ -48,10 +48,10 @@ function confirmDialogClose(isDirty) {
   return new Promise((resolve, reject) => {
     if (isDirty) {
       Modal.confirm({
-        title: "Visualization Editor",
-        content: "Are you sure you want to close the editor without saving?",
-        okText: "Yes",
-        cancelText: "No",
+        title: "可视化编辑器",
+        content: "你确定要不保存退出吗?",
+        okText: "是的",
+        cancelText: "取消",
         onOk: () => resolve(),
         onCancel: () => reject(),
       });
@@ -148,19 +148,20 @@ function EditVisualizationDialog({ dialog, visualization, query, queryResult }) 
     <Modal
       {...dialog.props}
       wrapClassName="ant-modal-fullscreen"
-      title="Visualization Editor"
-      okText="Save"
+      title="可视化编辑器"
+      okText="保存"
       okButtonProps={{
         loading: saveInProgress,
         disabled: saveInProgress,
       }}
       onOk={save}
+      cancelText="取消"
       onCancel={dismiss}
       wrapProps={{ "data-test": "EditVisualizationDialog" }}>
       <Grid.Row gutter={24}>
         <Grid.Col span={24} md={10}>
           <div className="m-b-15">
-            <label htmlFor="visualization-type">Visualization Type</label>
+            <label htmlFor="visualization-type">可视化类型</label>
             <Select
               data-test="VisualizationType"
               id="visualization-type"
@@ -176,7 +177,7 @@ function EditVisualizationDialog({ dialog, visualization, query, queryResult }) 
             </Select>
           </div>
           <div className="m-b-15">
-            <label htmlFor="visualization-name">Visualization Name</label>
+            <label htmlFor="visualization-name">名称</label>
             <Input
               data-test="VisualizationName"
               id="visualization-name"

@@ -146,9 +146,9 @@ class OrganizationSettings extends React.Component {
     const { formValues } = this.state;
     return (
       <React.Fragment>
-        <h3 className="m-t-0">General</h3>
+        <h3 className="m-t-0">基本信息</h3>
         <hr />
-        <Form.Item label="Date Format">
+        <Form.Item label="日期格式">
           <Select
             value={formValues.date_format}
             onChange={value => this.handleChange("date_format", value)}
@@ -158,7 +158,7 @@ class OrganizationSettings extends React.Component {
             ))}
           </Select>
         </Form.Item>
-        <Form.Item label="Time Format">
+        <Form.Item label="时间格式">
           <Select
             value={formValues.time_format}
             onChange={value => this.handleChange("time_format", value)}
@@ -168,12 +168,12 @@ class OrganizationSettings extends React.Component {
             ))}
           </Select>
         </Form.Item>
-        <Form.Item label="Feature Flags">
+        <Form.Item label="功能设置">
           <Checkbox
             name="feature_show_permissions_control"
             checked={formValues.feature_show_permissions_control}
             onChange={e => this.handleChange("feature_show_permissions_control", e.target.checked)}>
-            Enable experimental multiple owners support
+            启用多用户支持
           </Checkbox>
         </Form.Item>
         <Form.Item>
@@ -181,7 +181,7 @@ class OrganizationSettings extends React.Component {
             name="send_email_on_failed_scheduled_queries"
             checked={formValues.send_email_on_failed_scheduled_queries}
             onChange={e => this.handleChange("send_email_on_failed_scheduled_queries", e.target.checked)}>
-            Email query owners when scheduled queries fail
+            计划任务失败后邮件通知
           </Checkbox>
         </Form.Item>
         <Form.Item>
@@ -189,21 +189,21 @@ class OrganizationSettings extends React.Component {
             name="multi_byte_search_enabled"
             checked={formValues.multi_byte_search_enabled}
             onChange={e => this.handleChange("multi_byte_search_enabled", e.target.checked)}>
-            Enable multi-byte (Chinese, Japanese, and Korean) search for query names and descriptions (slower)
+            添加中文搜索支持
           </Checkbox>
         </Form.Item>
         <DynamicComponent name="BeaconConsentSetting">
           <Form.Item
             label={
               <>
-                Anonymous Usage Data Sharing <HelpTrigger type="USAGE_DATA_SHARING" />
+                匿名使用数据共享 <HelpTrigger type="USAGE_DATA_SHARING" />
               </>
             }>
             <Checkbox
               name="beacon_consent"
               checked={formValues.beacon_consent}
               onChange={e => this.handleChange("beacon_consent", e.target.checked)}>
-              Help Redash improve by automatically sending anonymous usage data
+              自动发送匿名使用数据以帮助Redash更好提升服务
             </Checkbox>
           </Form.Item>
         </DynamicComponent>
@@ -216,7 +216,7 @@ class OrganizationSettings extends React.Component {
     return (
       <React.Fragment>
         <h3 className="m-t-0">
-          Authentication <HelpTrigger type="AUTHENTICATION_OPTIONS" />
+          身份验证 <HelpTrigger type="AUTHENTICATION_OPTIONS" />
         </h3>
         <hr />
         {!settings.auth_password_login_enabled && (
@@ -261,7 +261,7 @@ class OrganizationSettings extends React.Component {
               {this.renderGeneralSettings()}
               {this.renderAuthSettings()}
               <Button className="w-100" type="primary" htmlType="submit" loading={submitting}>
-                Save
+                保存
               </Button>
             </Form>
           )}
@@ -274,7 +274,7 @@ class OrganizationSettings extends React.Component {
 const OrganizationSettingsPage = wrapSettingsTab(
   {
     permission: "admin",
-    title: "Settings",
+    title: "设置",
     path: "settings/organization",
     order: 6,
   },
@@ -283,6 +283,6 @@ const OrganizationSettingsPage = wrapSettingsTab(
 
 export default routeWithUserSession({
   path: "/settings/organization",
-  title: "Organization Settings",
+  title: "机构设置",
   render: pageProps => <OrganizationSettingsPage {...pageProps} />,
 });

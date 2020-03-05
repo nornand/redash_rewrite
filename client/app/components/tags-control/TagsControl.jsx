@@ -41,7 +41,7 @@ export class TagsControl extends React.Component {
         {tags.length === 0 && (
           <React.Fragment>
             <i className="zmdi zmdi-plus m-r-5" />
-            Add tag
+            添加标签
           </React.Fragment>
         )}
         {tags.length > 0 && <i className="zmdi zmdi-edit" />}

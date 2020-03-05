@@ -42,13 +42,13 @@ export default function QueryExecutionMetadata({
       )}
       <span className="m-l-5 m-r-10">
         <span>
-          <strong>{queryResultData.rows.length}</strong> {pluralize("row", queryResultData.rows.length)}
+          <strong>{queryResultData.rows.length}</strong> 行
         </span>
         <span className="m-l-5">
           {!isQueryExecuting && (
             <React.Fragment>
               <strong>{durationHumanize(queryResultData.runtime)}</strong>
-              <span className="hidden-xs"> runtime</span>
+              <span className="hidden-xs"> 运行时间</span>
             </React.Fragment>
           )}
           {isQueryExecuting && <span>Running&hellip;</span>}
@@ -62,7 +62,7 @@ export default function QueryExecutionMetadata({
       </span>
       <div>
         <span className="m-r-10">
-          <span className="hidden-xs">Refreshed </span>
+          <span className="hidden-xs">刷新 </span>
           <strong>
             <TimeAgo date={queryResultData.retrievedAt} placeholder="-" />
           </strong>

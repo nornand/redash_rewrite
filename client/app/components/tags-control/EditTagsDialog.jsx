@@ -39,11 +39,16 @@ class EditTagsDialog extends React.Component {
     const { dialog } = this.props;
     const { loading, availableTags, result } = this.state;
     return (
-      <Modal {...dialog.props} onOk={() => dialog.close(result)} title="Add/Edit Tags" className="shortModal">
+      <Modal {...dialog.props} 
+        onOk={() => dialog.close(result)} 
+        okText="确定"
+        cancelText="取消"
+        title="增加/编辑标签" 
+        className="shortModal">
         <Select
           mode="tags"
           className="w-100"
-          placeholder="Add some tags..."
+          placeholder="添加一些标签..."
           defaultValue={result}
           onChange={values => this.setState({ result: compact(map(values, trim)) })}
           autoFocus
