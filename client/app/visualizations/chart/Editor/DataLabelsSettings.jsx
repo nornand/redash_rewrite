@@ -20,7 +20,7 @@ export default function DataLabelsSettings({ options, onOptionsChange }) {
             data-test="Chart.DataLabels.ShowDataLabels"
             defaultChecked={options.showDataLabels}
             onChange={event => onOptionsChange({ showDataLabels: event.target.checked })}>
-            Show Data Labels
+            展示数据标签
           </Checkbox>
         </Section>
       )}
@@ -29,7 +29,7 @@ export default function DataLabelsSettings({ options, onOptionsChange }) {
         <Input
           label={
             <React.Fragment>
-              Number Values Format
+              数值格式
               <ContextHelp.NumberFormatSpecs />
             </React.Fragment>
           }
@@ -43,7 +43,7 @@ export default function DataLabelsSettings({ options, onOptionsChange }) {
         <Input
           label={
             <React.Fragment>
-              Percent Values Format
+              百分比数值格式
               <ContextHelp.NumberFormatSpecs />
             </React.Fragment>
           }
@@ -57,7 +57,7 @@ export default function DataLabelsSettings({ options, onOptionsChange }) {
         <Input
           label={
             <React.Fragment>
-              Date/Time Values Format
+              日期/时间格式
               <ContextHelp.DateTimeFormatSpecs />
             </React.Fragment>
           }
@@ -71,32 +71,30 @@ export default function DataLabelsSettings({ options, onOptionsChange }) {
         <Input
           label={
             <React.Fragment>
-              Data Labels
+              标签内容
               <ContextHelp placement="topRight" arrowPointAtCenter>
-                <div className="p-b-5">Use special names to access additional properties:</div>
+                <div className="p-b-5">使用以下标识符定制数据标签:</div>
                 <div>
-                  <code>{"{{ @@name }}"}</code> series name;
+                  <code>{"{{ @@name }}"}</code> 系列名称;
                 </div>
                 <div>
-                  <code>{"{{ @@x }}"}</code> x-value;
+                  <code>{"{{ @@x }}"}</code> x轴值;
                 </div>
                 <div>
-                  <code>{"{{ @@y }}"}</code> y-value;
+                  <code>{"{{ @@y }}"}</code> y轴值;
                 </div>
                 <div>
-                  <code>{"{{ @@yPercent }}"}</code> relative y-value;
+                  <code>{"{{ @@yPercent }}"}</code> y轴百分比;
                 </div>
                 <div>
-                  <code>{"{{ @@yError }}"}</code> y deviation;
+                  <code>{"{{ @@yError }}"}</code> y轴偏差;
                 </div>
                 <div>
-                  <code>{"{{ @@size }}"}</code> bubble size;
+                  <code>{"{{ @@size }}"}</code> 气泡大小;
                 </div>
                 <div className="p-t-5">
-                  Also, all query result columns can be referenced
-                  <br />
-                  using
-                  <code className="text-nowrap">{"{{ column_name }}"}</code> syntax.
+                  同时,可以使用
+                  <code className="text-nowrap">{"{{ 列名 }}"}</code> 展示对应列的值。
                 </div>
               </ContextHelp>
             </React.Fragment>

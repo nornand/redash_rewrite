@@ -13,17 +13,17 @@ export default function TextAlignmentSelect({ className, ...props }) {
     // Antd RadioGroup does not use any custom attributes
     <div {...pickBy(props, (v, k) => startsWith(k, "data-"))}>
       <Radio.Group className={cx("text-alignment-select", className)} {...props}>
-        <Tooltip title="Align left" mouseEnterDelay={0} mouseLeaveDelay={0}>
+        <Tooltip title="左对齐" mouseEnterDelay={0} mouseLeaveDelay={0}>
           <Radio.Button value="left" data-test="TextAlignmentSelect.Left">
             <Icon type="align-left" />
           </Radio.Button>
         </Tooltip>
-        <Tooltip title="Align center" mouseEnterDelay={0} mouseLeaveDelay={0}>
+        <Tooltip title="居中对齐" mouseEnterDelay={0} mouseLeaveDelay={0}>
           <Radio.Button value="center" data-test="TextAlignmentSelect.Center">
             <Icon type="align-center" />
           </Radio.Button>
         </Tooltip>
-        <Tooltip title="Align right" mouseEnterDelay={0} mouseLeaveDelay={0}>
+        <Tooltip title="右对齐" mouseEnterDelay={0} mouseLeaveDelay={0}>
           <Radio.Button value="right" data-test="TextAlignmentSelect.Right">
             <Icon type="align-right" />
           </Radio.Button>

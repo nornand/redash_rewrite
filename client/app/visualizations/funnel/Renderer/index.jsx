@@ -64,14 +64,14 @@ export default function Renderer({ data, options }) {
         ),
       },
       {
-        title: "% Max",
+        title: "较最大值比例",
         dataIndex: "pctMax",
         width: "15%",
         align: "center",
         render: value => formatPercentValue(value),
       },
       {
-        title: "% Previous",
+        title: "较上一值比例",
         dataIndex: "pctPrevious",
         width: "15%",
         align: "center",

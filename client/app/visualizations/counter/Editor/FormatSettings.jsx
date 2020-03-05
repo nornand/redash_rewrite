@@ -11,7 +11,7 @@ export default function FormatSettings({ options, data, onOptionsChange }) {
       <Section>
         <InputNumber
           layout="horizontal"
-          label="Formatting Decimal Place"
+          label="设置小数位"
           className="w-100"
           data-test="Counter.Formatting.DecimalPlace"
           defaultValue={options.stringDecimal}
@@ -23,7 +23,7 @@ export default function FormatSettings({ options, data, onOptionsChange }) {
       <Section>
         <Input
           layout="horizontal"
-          label="Formatting Decimal Character"
+          label="设置小数点字符"
           className="w-100"
           data-test="Counter.Formatting.DecimalCharacter"
           defaultValue={options.stringDecChar}
@@ -35,7 +35,7 @@ export default function FormatSettings({ options, data, onOptionsChange }) {
       <Section>
         <Input
           layout="horizontal"
-          label="Formatting Thousands Separator"
+          label="设置千位分隔符"
           className="w-100"
           data-test="Counter.Formatting.ThousandsSeparator"
           defaultValue={options.stringThouSep}
@@ -47,7 +47,7 @@ export default function FormatSettings({ options, data, onOptionsChange }) {
       <Section>
         <Input
           layout="horizontal"
-          label="Formatting String Prefix"
+          label="设置前缀"
           className="w-100"
           data-test="Counter.Formatting.StringPrefix"
           defaultValue={options.stringPrefix}
@@ -59,7 +59,7 @@ export default function FormatSettings({ options, data, onOptionsChange }) {
       <Section>
         <Input
           layout="horizontal"
-          label="Formatting String Suffix"
+          label="设置后缀"
           className="w-100"
           data-test="Counter.Formatting.StringSuffix"
           defaultValue={options.stringSuffix}
@@ -73,7 +73,7 @@ export default function FormatSettings({ options, data, onOptionsChange }) {
           data-test="Counter.Formatting.FormatTargetValue"
           defaultChecked={options.formatTargetValue}
           onChange={formatTargetValue => onOptionsChange({ formatTargetValue })}>
-          Format Target Value
+          设置目标值
         </Switch>
       </Section>
     </React.Fragment>

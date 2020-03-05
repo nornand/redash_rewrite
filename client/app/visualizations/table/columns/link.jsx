@@ -12,7 +12,7 @@ function Editor({ column, onChange }) {
     <React.Fragment>
       <Section>
         <Input
-          label="URL template"
+          label="URL模板"
           data-test="Table.ColumnEditor.Link.UrlTemplate"
           defaultValue={column.linkUrlTemplate}
           onChange={event => onChangeDebounced({ linkUrlTemplate: event.target.value })}
@@ -21,7 +21,7 @@ function Editor({ column, onChange }) {
 
       <Section>
         <Input
-          label="Text template"
+          label="文本模板"
           data-test="Table.ColumnEditor.Link.TextTemplate"
           defaultValue={column.linkTextTemplate}
           onChange={event => onChangeDebounced({ linkTextTemplate: event.target.value })}
@@ -30,7 +30,7 @@ function Editor({ column, onChange }) {
 
       <Section>
         <Input
-          label="Title template"
+          label="标题模板"
           data-test="Table.ColumnEditor.Link.TitleTemplate"
           defaultValue={column.linkTitleTemplate}
           onChange={event => onChangeDebounced({ linkTitleTemplate: event.target.value })}
@@ -42,7 +42,7 @@ function Editor({ column, onChange }) {
           data-test="Table.ColumnEditor.Link.OpenInNewTab"
           checked={column.linkOpenInNewTab}
           onChange={event => onChange({ linkOpenInNewTab: event.target.checked })}>
-          Open in new tab
+          在新标签打开
         </Checkbox>
       </Section>
 
@@ -50,14 +50,14 @@ function Editor({ column, onChange }) {
         <ContextHelp
           placement="topLeft"
           arrowPointAtCenter
-          icon={<span style={{ cursor: "default" }}>Format specs {ContextHelp.defaultIcon}</span>}>
+          icon={<span style={{ cursor: "default" }}>格式说明 {ContextHelp.defaultIcon}</span>}>
           <div>
-            All columns can be referenced using <code>{"{{ column_name }}"}</code> syntax.
+            可以使用<code>{"{{ 列名 }}"}</code>表示对应列名。
           </div>
           <div>
-            Use <code>{"{{ @ }}"}</code> to reference current (this) column.
+          <code>{"{{ @ }}"}</code>表示当前列。
           </div>
-          <div>This syntax is applicable to URL, Text and Title options.</div>
+          <div>这种方式可以应用于URL,标题和尺寸设置。</div>
         </ContextHelp>
       </Section>
     </React.Fragment>

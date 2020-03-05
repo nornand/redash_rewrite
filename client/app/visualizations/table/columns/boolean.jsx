@@ -19,7 +19,7 @@ function Editor({ column, onChange }) {
         <Input
           label={
             <React.Fragment>
-              Value for <code>false</code>
+              <code>false</code>对应的展现值
             </React.Fragment>
           }
           data-test="Table.ColumnEditor.Boolean.False"
@@ -32,7 +32,7 @@ function Editor({ column, onChange }) {
         <Input
           label={
             <React.Fragment>
-              Value for <code>true</code>
+              <code>true</code>对应的展现值
             </React.Fragment>
           }
           data-test="Table.ColumnEditor.Boolean.True"
@@ -72,5 +72,5 @@ export default function initBooleanColumn(column) {
   return BooleanColumn;
 }
 
-initBooleanColumn.friendlyName = "Boolean";
+initBooleanColumn.friendlyName = "布尔";
 initBooleanColumn.Editor = Editor;

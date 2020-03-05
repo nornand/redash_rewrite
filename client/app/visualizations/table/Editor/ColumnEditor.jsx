@@ -42,13 +42,13 @@ export default function ColumnEditor({ column, onChange }) {
           data-test={`Table.Column.${column.name}.UseForSearch`}
           defaultChecked={column.allowSearch}
           onChange={event => handleChange({ allowSearch: event.target.checked })}>
-          Use for search
+          作为搜索项
         </Checkbox>
       </Section>
 
       <Section>
         <Select
-          label="Display as:"
+          label="展示格式"
           data-test={`Table.Column.${column.name}.DisplayAs`}
           className="w-100"
           defaultValue={column.displayAs}

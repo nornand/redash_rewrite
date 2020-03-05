@@ -4,6 +4,6 @@ import ColumnsSettings from "./ColumnsSettings";
 import OptionsSettings from "./OptionsSettings";
 
 export default createTabbedEditor([
-  { key: "Columns", title: "Columns", component: ColumnsSettings },
-  { key: "Options", title: "Options", component: OptionsSettings },
+  { key: "Columns", title: "列", component: ColumnsSettings },
+  { key: "Options", title: "选项", component: OptionsSettings },
 ]);

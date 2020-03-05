@@ -16,7 +16,7 @@ export default function Editor({ options, onOptionsChange }) {
           id="pivot-show-controls"
           defaultChecked={!options.controls.enabled}
           onChange={enabled => updateOptions({ controls: { enabled: !enabled } })}>
-          Show Pivot Controls
+          显示透视选项
         </Switch>
       </Section>
       <Section>
@@ -24,7 +24,7 @@ export default function Editor({ options, onOptionsChange }) {
           id="pivot-show-row-totals"
           defaultChecked={options.rendererOptions.table.rowTotals}
           onChange={rowTotals => updateOptions({ rendererOptions: { table: { rowTotals } } })}>
-          Show Row Totals
+          显示行汇总
         </Switch>
       </Section>
       <Section>
@@ -32,7 +32,7 @@ export default function Editor({ options, onOptionsChange }) {
           id="pivot-show-column-totals"
           defaultChecked={options.rendererOptions.table.colTotals}
           onChange={colTotals => updateOptions({ rendererOptions: { table: { colTotals } } })}>
-          Show Column Totals
+          显示列汇总
         </Switch>
       </Section>
     </React.Fragment>

@@ -9,7 +9,7 @@ export default function GeneralSettings({ options, data, visualizationName, onOp
       <Section>
         <Input
           layout="horizontal"
-          label="Counter Label"
+          label="标签"
           className="w-100"
           data-test="Counter.General.Label"
           defaultValue={options.counterLabel}
@@ -21,7 +21,7 @@ export default function GeneralSettings({ options, data, visualizationName, onOp
       <Section>
         <Select
           layout="horizontal"
-          label="Counter Value Column Name"
+          label="计数值所在列"
           className="w-100"
           data-test="Counter.General.ValueColumn"
           defaultValue={options.counterColName}
@@ -38,7 +38,7 @@ export default function GeneralSettings({ options, data, visualizationName, onOp
       <Section>
         <InputNumber
           layout="horizontal"
-          label="Counter Value Row Number"
+          label="计数值所在行"
           className="w-100"
           data-test="Counter.General.ValueRowNumber"
           defaultValue={options.rowNumber}
@@ -50,7 +50,7 @@ export default function GeneralSettings({ options, data, visualizationName, onOp
       <Section>
         <Select
           layout="horizontal"
-          label="Target Value Column Name"
+          label="目标值所在列"
           className="w-100"
           data-test="Counter.General.TargetValueColumn"
           defaultValue={options.targetColName}
@@ -67,7 +67,7 @@ export default function GeneralSettings({ options, data, visualizationName, onOp
       <Section>
         <InputNumber
           layout="horizontal"
-          label="Target Value Row Number"
+          label="目标值所在行"
           className="w-100"
           data-test="Counter.General.TargetValueRowNumber"
           defaultValue={options.targetRowNumber}
@@ -80,7 +80,7 @@ export default function GeneralSettings({ options, data, visualizationName, onOp
           data-test="Counter.General.CountRows"
           defaultChecked={options.countRow}
           onChange={countRow => onOptionsChange({ countRow })}>
-          Count Rows
+          汇总行数
         </Switch>
       </Section>
     </React.Fragment>

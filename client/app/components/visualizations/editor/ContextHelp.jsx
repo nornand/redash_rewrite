@@ -40,7 +40,7 @@ function DateTimeFormatSpecs() {
     <Tooltip
       title={
         <React.Fragment>
-          Formatting Dates and Times
+          设置日期时间格式
           <i className="fa fa-external-link m-l-5" />
         </React.Fragment>
       }>

@@ -15,7 +15,7 @@ const SortableBodyRow = sortableElement(props => <tr {...props} />);
 function getTableColumns(options, updateSeriesOption, debouncedUpdateSeriesOption) {
   const result = [
     {
-      title: "Order",
+      title: "顺序",
       dataIndex: "zIndex",
       className: "text-nowrap",
       render: (unused, item) => (
@@ -26,7 +26,7 @@ function getTableColumns(options, updateSeriesOption, debouncedUpdateSeriesOptio
       ),
     },
     {
-      title: "Label",
+      title: "标签",
       dataIndex: "name",
       className: "text-nowrap",
       render: (unused, item) => (
@@ -42,7 +42,7 @@ function getTableColumns(options, updateSeriesOption, debouncedUpdateSeriesOptio
 
   if (!includes(["pie", "heatmap"], options.globalSeriesType)) {
     result.push({
-      title: "Y Axis",
+      title: "Y轴",
       dataIndex: "yAxis",
       className: "text-nowrap",
       render: (unused, item) => (
@@ -51,16 +51,16 @@ function getTableColumns(options, updateSeriesOption, debouncedUpdateSeriesOptio
           value={item.yAxis === 1 ? 1 : 0}
           onChange={event => updateSeriesOption(item.key, "yAxis", event.target.value)}>
           <Radio value={0} data-test={`Chart.Series.${item.key}.UseLeftAxis`}>
-            left
+            左
           </Radio>
           <Radio value={1} data-test={`Chart.Series.${item.key}.UseRightAxis`}>
-            right
+            右
           </Radio>
         </Radio.Group>
       ),
     });
     result.push({
-      title: "Type",
+      title: "类型",
       dataIndex: "type",
       className: "text-nowrap",
       render: (unused, item) => (

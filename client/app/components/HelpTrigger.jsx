@@ -37,7 +37,7 @@ export const TYPES = {
     "/user-guide/querying/writing-queries#Managing-Query-Permissions",
     "Guide: Managing Query Permissions",
   ],
-  NUMBER_FORMAT_SPECS: ["/user-guide/visualizations/formatting-numbers", "Formatting Numbers"],
+  NUMBER_FORMAT_SPECS: ["/user-guide/visualizations/formatting-numbers", "设置数值格式"],
 };
 
 export default class HelpTrigger extends React.Component {

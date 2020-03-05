@@ -4,7 +4,7 @@ const DEFAULT_OPTIONS = {};
 
 export default {
   type: "DETAILS",
-  name: "Details View",
+  name: "详情",
   getOptions: options => ({ ...DEFAULT_OPTIONS, ...options }),
   Renderer: DetailsRenderer,
   defaultColumns: 2,

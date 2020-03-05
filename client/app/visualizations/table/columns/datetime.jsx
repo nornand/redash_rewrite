@@ -12,7 +12,7 @@ function Editor({ column, onChange }) {
       <Input
         label={
           <React.Fragment>
-            Date/Time format
+            日期/时间格式
             <ContextHelp.DateTimeFormatSpecs />
           </React.Fragment>
         }
@@ -52,5 +52,5 @@ export default function initDateTimeColumn(column) {
   return DateTimeColumn;
 }
 
-initDateTimeColumn.friendlyName = "Date/Time";
+initDateTimeColumn.friendlyName = "日期/时间";
 initDateTimeColumn.Editor = Editor;

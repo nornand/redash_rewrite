@@ -26,34 +26,34 @@ export default function AxisSettings({ id, options, features, onChange }) {
     <React.Fragment>
       <Section>
         <Select
-          label="Scale"
+          label="刻度"
           className="w-100"
           data-test={`Chart.${id}.Type`}
           defaultValue={options.type}
           onChange={type => optionsChanged({ type })}>
           {features.autoDetectType && (
             <Select.Option value="-" data-test={`Chart.${id}.Type.Auto`}>
-              Auto Detect
+              自动
             </Select.Option>
           )}
           <Select.Option value="datetime" data-test={`Chart.${id}.Type.DateTime`}>
-            Datetime
+            时间
           </Select.Option>
           <Select.Option value="linear" data-test={`Chart.${id}.Type.Linear`}>
-            Linear
+            线性
           </Select.Option>
           <Select.Option value="logarithmic" data-test={`Chart.${id}.Type.Logarithmic`}>
-            Logarithmic
+            对数
           </Select.Option>
           <Select.Option value="category" data-test={`Chart.${id}.Type.Category`}>
-            Category
+            种类
           </Select.Option>
         </Select>
       </Section>
 
       <Section>
         <Input
-          label="Name"
+          label="名称"
           data-test={`Chart.${id}.Name`}
           defaultValue={isObject(options.title) ? options.title.text : null}
           onChange={event => handleNameChange(event.target.value)}
@@ -65,9 +65,9 @@ export default function AxisSettings({ id, options, features, onChange }) {
           <Grid.Row gutter={15} type="flex" align="middle">
             <Grid.Col span={12}>
               <InputNumber
-                label="Min Value"
+                label="最小值"
                 className="w-100"
-                placeholder="Auto"
+                placeholder="自动"
                 data-test={`Chart.${id}.RangeMin`}
                 defaultValue={toNumber(options.rangeMin)}
                 onChange={value => handleMinMaxChange({ rangeMin: toNumber(value) })}
@@ -75,9 +75,9 @@ export default function AxisSettings({ id, options, features, onChange }) {
             </Grid.Col>
             <Grid.Col span={12}>
               <InputNumber
-                label="Max Value"
+                label="最大值"
                 className="w-100"
-                placeholder="Auto"
+                placeholder="自动"
                 data-test={`Chart.${id}.RangeMax`}
                 defaultValue={toNumber(options.rangeMax)}
                 onChange={value => handleMinMaxChange({ rangeMax: toNumber(value) })}

@@ -102,7 +102,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
     <React.Fragment>
       <Section>
         <ChartTypeSelect
-          label="Chart Type"
+          label="图表类型"
           className="w-100"
           data-test="Chart.GlobalSeriesType"
           defaultValue={options.globalSeriesType}
@@ -153,16 +153,16 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
       {includes(["pie"], options.globalSeriesType) && (
         <Section>
           <Select
-            label="Direction"
+            label="方向"
             className="w-100"
             data-test="Chart.PieDirection"
             defaultValue={options.direction.type}
             onChange={type => onOptionsChange({ direction: { type } })}>
             <Select.Option value="counterclockwise" data-test="Chart.PieDirection.Counterclockwise">
-              Counterclockwise
+              逆时针
             </Select.Option>
             <Select.Option value="clockwise" data-test="Chart.PieDirection.Clockwise">
-              Clockwise
+              顺时针
             </Select.Option>
           </Select>
         </Section>
@@ -174,7 +174,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
             data-test="Chart.ShowLegend"
             defaultChecked={options.legend.enabled}
             onChange={event => onOptionsChange({ legend: { enabled: event.target.checked } })}>
-            Show Legend
+            展示图例
           </Checkbox>
         </Section>
       )}
@@ -185,7 +185,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
             data-test="Chart.ShowPoints"
             defaultChecked={options.showpoints}
             onChange={event => onOptionsChange({ showpoints: event.target.checked })}>
-            Show All Points
+            展示所有点
           </Checkbox>
         </Section>
       )}
@@ -193,17 +193,17 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
       {!includes(["custom", "heatmap"], options.globalSeriesType) && (
         <Section>
           <Select
-            label="Stacking"
+            label="堆叠"
             className="w-100"
             data-test="Chart.Stacking"
             defaultValue={options.series.stacking}
             disabled={!includes(["line", "area", "column"], options.globalSeriesType)}
             onChange={stacking => onOptionsChange({ series: { stacking } })}>
             <Select.Option value={null} data-test="Chart.Stacking.Disabled">
-              Disabled
+              不堆叠
             </Select.Option>
             <Select.Option value="stack" data-test="Chart.Stacking.Stack">
-              Stack
+              堆叠
             </Select.Option>
           </Select>
         </Section>
@@ -215,7 +215,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
             data-test="Chart.NormalizeValues"
             defaultChecked={options.series.percentValues}
             onChange={event => onOptionsChange({ series: { percentValues: event.target.checked } })}>
-            Normalize values to percentage
+            将值转化为百分比
           </Checkbox>
         </Section>
       )}
@@ -223,16 +223,16 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
       {!includes(["custom", "heatmap", "bubble", "scatter"], options.globalSeriesType) && (
         <Section>
           <Select
-            label="Missing and NULL values"
+            label="缺失值和空值"
             className="w-100"
             data-test="Chart.MissingValues"
             defaultValue={options.missingValuesAsZero ? 1 : 0}
             onChange={value => onOptionsChange({ missingValuesAsZero: !!value })}>
             <Select.Option value={0} data-test="Chart.MissingValues.Keep">
-              Do not display in chart
+              不展示
             </Select.Option>
             <Select.Option value={1} data-test="Chart.MissingValues.Zero">
-              Convert to 0 and display in chart
+              转换为0
             </Select.Option>
           </Select>
         </Section>
