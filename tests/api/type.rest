@@ -1,0 +1,12 @@
+GET http://localhost:8080/api/data_sources/types HTTP/1.1
+content-type: application/json
+
+{
+Host: "localhost:8080",
+Accept: "application/json, text/plain, */*",
+Accept-Language: "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+Accept-Encoding: "gzip, deflate",
+Connection: "keep-alive",
+Referer: "http://localhost:8080/data_sources",
+Cookie: "session=.eJwlzklqQzEMANC7eJ2CbMkacpkga6Dd_jSr0ru3kAM8eD_j0Vc9P8f9-3rVbTy-ctyH4S5BmIVZthxl4zEttUzzVjTkvUX7ROpc0kc8CbNNnFRpqjKJR-n0XbQXTEIobu_EiUGLuSDLAXCKqvkqUfuHwtFpPG7j9azrnZkf0rCdZ0AGI-04roso4ZAresT4_QPU9zcz.Xl8VFQ.nTI5rh76JM75yGoZuaE9jYp1gTE; remember_token=1-7f05a61c0dc6345cba8244d0b4a83acc|2abfdad996a62f55f8b509abc963f88200eccbb8679f7e0d80b5b7aefcdfdec279b7a1c8843c2fcc43bee0a933f5eafe0e529dbc02bd52d078b5553803fe3305"
+}
