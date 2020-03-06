@@ -122,6 +122,6 @@ const AlertsListPage = itemsList(
 
 export default routeWithUserSession({
   path: "/alerts",
-  title: "Alerts",
+  title: "提醒",
   render: pageProps => <AlertsListPage {...pageProps} currentPage="alerts" />,
 });

@@ -87,7 +87,7 @@ export default function StyleSettings({ options, onOptionsChange }) {
     <React.Fragment>
       <Section>
         <Select
-          label="Map Tiles"
+          label="地图样式"
           data-test="Map.Editor.Tiles"
           className="w-100"
           value={options.mapTileUrl}
@@ -100,14 +100,14 @@ export default function StyleSettings({ options, onOptionsChange }) {
         </Select>
       </Section>
 
-      <Section.Title>Markers</Section.Title>
+      <Section.Title>标记</Section.Title>
 
       <Section>
         <Checkbox
           data-test="Map.Editor.ClusterMarkers"
           defaultChecked={options.clusterMarkers}
           onChange={event => onOptionsChange({ clusterMarkers: event.target.checked })}>
-          Cluster Markers
+          聚合标记
         </Checkbox>
       </Section>
 
@@ -117,7 +117,7 @@ export default function StyleSettings({ options, onOptionsChange }) {
           disabled={!isCustomMarkersStyleAllowed}
           defaultChecked={options.customizeMarkers}
           onChange={event => onOptionsChange({ customizeMarkers: event.target.checked })}>
-          Override default style
+          覆盖默认样式
         </Checkbox>
         {!isCustomMarkersStyleAllowed && (
           <ContextHelp placement="topLeft" arrowPointAtCenter>

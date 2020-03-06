@@ -75,7 +75,7 @@ export default function GeneralSettings({ options, onOptionsChange }) {
             <Input
               label={
                 <React.Fragment>
-                  Value format
+                  数值格式
                   <ContextHelp.NumberFormatSpecs />
                 </React.Fragment>
               }
@@ -87,7 +87,7 @@ export default function GeneralSettings({ options, onOptionsChange }) {
           </Grid.Col>
           <Grid.Col span={12}>
             <Input
-              label="Value placeholder"
+              label="数值占位符"
               className="w-100"
               data-test="Choropleth.Editor.ValuePlaceholder"
               defaultValue={options.noValuePlaceholder}
@@ -102,7 +102,7 @@ export default function GeneralSettings({ options, onOptionsChange }) {
           data-test="Choropleth.Editor.LegendVisibility"
           checked={options.legend.visible}
           onChange={event => onOptionsChange({ legend: { visible: event.target.checked } })}>
-          Show legend
+          显示图例
         </Checkbox>
       </Section>
 
@@ -110,30 +110,30 @@ export default function GeneralSettings({ options, onOptionsChange }) {
         <Grid.Row gutter={15}>
           <Grid.Col span={12}>
             <Select
-              label="Legend position"
+              label="图例位置"
               className="w-100"
               data-test="Choropleth.Editor.LegendPosition"
               disabled={!options.legend.visible}
               defaultValue={options.legend.position}
               onChange={position => onOptionsChange({ legend: { position } })}>
               <Select.Option value="top-left" data-test="Choropleth.Editor.LegendPosition.TopLeft">
-                top / left
+                上/左
               </Select.Option>
               <Select.Option value="top-right" data-test="Choropleth.Editor.LegendPosition.TopRight">
-                top / right
+                上/右
               </Select.Option>
               <Select.Option value="bottom-left" data-test="Choropleth.Editor.LegendPosition.BottomLeft">
-                bottom / left
+                下/左
               </Select.Option>
               <Select.Option value="bottom-right" data-test="Choropleth.Editor.LegendPosition.BottomRight">
-                bottom / right
+                下/右
               </Select.Option>
             </Select>
           </Grid.Col>
           <Grid.Col span={12}>
             <TextAlignmentSelect
               data-test="Choropleth.Editor.LegendTextAlignment"
-              label="Legend text alignment"
+              label="图例对齐方式"
               disabled={!options.legend.visible}
               defaultValue={options.legend.alignText}
               onChange={event => onOptionsChange({ legend: { alignText: event.target.value } })}
@@ -147,13 +147,13 @@ export default function GeneralSettings({ options, onOptionsChange }) {
           data-test="Choropleth.Editor.TooltipEnabled"
           checked={options.tooltip.enabled}
           onChange={event => onOptionsChange({ tooltip: { enabled: event.target.checked } })}>
-          Show tooltip
+          显示提示
         </Checkbox>
       </Section>
 
       <Section>
         <Input
-          label={<React.Fragment>Tooltip template {templateFormatHint}</React.Fragment>}
+          label={<React.Fragment>提示模板 {templateFormatHint}</React.Fragment>}
           className="w-100"
           data-test="Choropleth.Editor.TooltipTemplate"
           disabled={!options.tooltip.enabled}
@@ -167,13 +167,13 @@ export default function GeneralSettings({ options, onOptionsChange }) {
           data-test="Choropleth.Editor.PopupEnabled"
           checked={options.popup.enabled}
           onChange={event => onOptionsChange({ popup: { enabled: event.target.checked } })}>
-          Show popup
+          显示弹出窗
         </Checkbox>
       </Section>
 
       <Section>
         <TextArea
-          label={<React.Fragment>Popup template {templateFormatHint}</React.Fragment>}
+          label={<React.Fragment>弹出窗模板 {templateFormatHint}</React.Fragment>}
           className="w-100"
           data-test="Choropleth.Editor.PopupTemplate"
           disabled={!options.popup.enabled}

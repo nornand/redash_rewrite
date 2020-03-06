@@ -29,12 +29,12 @@ class DashboardList extends React.Component {
     {
       key: "all",
       href: "dashboards",
-      title: "All Dashboards",
+      title: "所有的仪表盘",
     },
     {
       key: "favorites",
       href: "dashboards/favorites",
-      title: "Favorites",
+      title: "收藏",
       icon: () => <Sidebar.MenuIcon icon="fa fa-star" />,
     },
   ];
@@ -56,14 +56,14 @@ class DashboardList extends React.Component {
         </React.Fragment>
       ),
       {
-        title: "Name",
+        title: "名称",
         field: "name",
         width: null,
       }
     ),
     Columns.avatar({ field: "user", className: "p-l-0 p-r-0" }, name => `Created by ${name}`),
     Columns.dateTime.sortable({
-      title: "Created At",
+      title: "创建时间",
       field: "created_at",
       className: "text-nowrap",
       width: "1%",
@@ -79,7 +79,7 @@ class DashboardList extends React.Component {
           <Layout className="m-l-15 m-r-15">
             <Layout.Sidebar className="m-b-0">
               <Sidebar.SearchInput
-                placeholder="Search Dashboards..."
+                placeholder="搜索仪表盘..."
                 value={controller.searchTerm}
                 onChange={controller.updateSearch}
               />
@@ -150,12 +150,12 @@ const DashboardListPage = itemsList(
 export default [
   routeWithUserSession({
     path: "/dashboards",
-    title: "Dashboards",
+    title: "仪表盘",
     render: pageProps => <DashboardListPage {...pageProps} currentPage="all" />,
   }),
   routeWithUserSession({
     path: "/dashboards/favorites",
-    title: "Favorite Dashboards",
+    title: "收藏的仪表盘",
     render: pageProps => <DashboardListPage {...pageProps} currentPage="favorites" />,
   }),
 ];

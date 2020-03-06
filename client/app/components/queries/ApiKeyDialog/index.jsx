@@ -39,27 +39,27 @@ function ApiKeyDialog({ dialog, ...props }) {
   );
 
   return (
-    <Modal {...dialog.props} width={600} footer={<Button onClick={() => dialog.close(query)}>Close</Button>}>
+    <Modal {...dialog.props} width={600} footer={<Button onClick={() => dialog.close(query)}>关闭</Button>}>
       <div className="query-api-key-dialog-wrapper">
-        <h5>API Key</h5>
+        <h5>API密钥</h5>
         <div className="m-b-20">
           <Input.Group compact>
             <Input readOnly value={query.api_key} />
             {query.can_edit && (
               <Button disabled={updatingApiKey} loading={updatingApiKey} onClick={regenerateQueryApiKey}>
-                Regenerate
+                重新生成
               </Button>
             )}
           </Input.Group>
         </div>
 
-        <h5>Example API Calls:</h5>
+        <h5>API调用举例</h5>
         <div className="m-b-10">
-          <label>Results in CSV format:</label>
+          <label>CSV格式:</label>
           <CodeBlock copyable>{csvUrl}</CodeBlock>
         </div>
         <div>
-          <label>Results in JSON format:</label>
+          <label>JSON格式:</label>
           <CodeBlock copyable>{jsonUrl}</CodeBlock>
         </div>
       </div>

@@ -165,22 +165,22 @@ const QueriesListPage = itemsList(
 export default [
   routeWithUserSession({
     path: "/queries",
-    title: "Queries",
+    title: "查询",
     render: pageProps => <QueriesListPage {...pageProps} currentPage="all" />,
   }),
   routeWithUserSession({
     path: "/queries/favorites",
-    title: "Favorite Queries",
+    title: "收藏的查询",
     render: pageProps => <QueriesListPage {...pageProps} currentPage="favorites" />,
   }),
   routeWithUserSession({
     path: "/queries/archive",
-    title: "Archived Queries",
+    title: "已保存的查询",
     render: pageProps => <QueriesListPage {...pageProps} currentPage="archive" />,
   }),
   routeWithUserSession({
     path: "/queries/my",
-    title: "My Queries",
+    title: "我的查询",
     render: pageProps => <QueriesListPage {...pageProps} currentPage="my" />,
   }),
 ];

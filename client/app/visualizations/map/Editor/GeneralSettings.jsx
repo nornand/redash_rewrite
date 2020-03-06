@@ -21,7 +21,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
     <React.Fragment>
       <Section>
         <Select
-          label="Latitude Column Name"
+          label="经度对应列"
           data-test="Map.Editor.LatitudeColumnName"
           className="w-100"
           value={options.latColName}
@@ -36,7 +36,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
 
       <Section>
         <Select
-          label="Longitude Column Name"
+          label="维度列名称"
           data-test="Map.Editor.LongitudeColumnName"
           className="w-100"
           value={options.lonColName}
@@ -51,7 +51,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
 
       <Section>
         <Select
-          label="Group By"
+          label="分组依据"
           data-test="Map.Editor.GroupBy"
           className="w-100"
           allowClear

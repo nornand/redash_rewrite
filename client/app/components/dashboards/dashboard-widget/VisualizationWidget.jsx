@@ -31,7 +31,7 @@ function visualizationWidgetMenuOptions({ widget, canEditDashboard, onParameters
     <Menu.Item key="download_csv" disabled={isQueryResultEmpty}>
       {!isQueryResultEmpty ? (
         <a href={downloadLink("csv")} download={downloadName("csv")} target="_self">
-          Download as CSV File
+          导出为CSV文件
         </a>
       ) : (
         "Download as CSV File"
@@ -40,7 +40,7 @@ function visualizationWidgetMenuOptions({ widget, canEditDashboard, onParameters
     <Menu.Item key="download_tsv" disabled={isQueryResultEmpty}>
       {!isQueryResultEmpty ? (
         <a href={downloadLink("tsv")} download={downloadName("tsv")} target="_self">
-          Download as TSV File
+          导出为TSV文件
         </a>
       ) : (
         "Download as TSV File"
@@ -49,7 +49,7 @@ function visualizationWidgetMenuOptions({ widget, canEditDashboard, onParameters
     <Menu.Item key="download_excel" disabled={isQueryResultEmpty}>
       {!isQueryResultEmpty ? (
         <a href={downloadLink("xlsx")} download={downloadName("xlsx")} target="_self">
-          Download as Excel File
+          导出为Excel文件
         </a>
       ) : (
         "Download as Excel File"
@@ -58,7 +58,7 @@ function visualizationWidgetMenuOptions({ widget, canEditDashboard, onParameters
     (canViewQuery || canEditParameters) && <Menu.Divider key="divider" />,
     canViewQuery && (
       <Menu.Item key="view_query">
-        <a href={widget.getQuery().getUrl(true, widget.visualization.id)}>View Query</a>
+        <a href={widget.getQuery().getUrl(true, widget.visualization.id)}>查看对应的查询</a>
       </Menu.Item>
     ),
     canEditParameters && (

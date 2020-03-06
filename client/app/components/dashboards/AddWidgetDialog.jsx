@@ -103,7 +103,7 @@ class AddWidgetDialog extends React.Component {
     return (
       <div>
         <div className="form-group">
-          <label htmlFor="choose-visualization">Choose Visualization</label>
+          <label htmlFor="choose-visualization">选择可视化组件</label>
           <Select
             id="choose-visualization"
             className="w-100"
@@ -131,13 +131,14 @@ class AddWidgetDialog extends React.Component {
     return (
       <Modal
         {...dialog.props}
-        title="Add Widget"
+        title="添加组件"
         onOk={() => this.saveWidget()}
         okButtonProps={{
           loading: this.state.saveInProgress,
           disabled: !this.state.selectedQuery,
         }}
-        okText="Add to Dashboard"
+        okText="添加至仪表盘"
+        cancelText="取消"
         width={700}>
         <div data-test="AddWidgetDialog">
           <QuerySelector onChange={query => this.selectQuery(query)} />

@@ -27,17 +27,17 @@ export default function FormatSettings({ options, onOptionsChange }) {
           data-test="Map.Editor.TooltipEnabled"
           checked={options.tooltip.enabled}
           onChange={event => onOptionsChange({ tooltip: { enabled: event.target.checked } })}>
-          Show tooltip
+          显示提示
         </Checkbox>
       </Section>
 
       <Section>
         <Input
-          label={<React.Fragment>Tooltip template {templateFormatHint}</React.Fragment>}
+          label={<React.Fragment>提示模板 {templateFormatHint}</React.Fragment>}
           className="w-100"
           data-test="Map.Editor.TooltipTemplate"
           disabled={!options.tooltip.enabled}
-          placeholder="Default template"
+          placeholder="默认模板"
           defaultValue={options.tooltip.template}
           onChange={event => onOptionsChangeDebounced({ tooltip: { template: event.target.value } })}
         />
@@ -48,18 +48,18 @@ export default function FormatSettings({ options, onOptionsChange }) {
           data-test="Map.Editor.PopupEnabled"
           checked={options.popup.enabled}
           onChange={event => onOptionsChange({ popup: { enabled: event.target.checked } })}>
-          Show popup
+          显示弹出窗
         </Checkbox>
       </Section>
 
       <Section>
         <TextArea
-          label={<React.Fragment>Popup template {templateFormatHint}</React.Fragment>}
+          label={<React.Fragment>弹出窗模板 {templateFormatHint}</React.Fragment>}
           className="w-100"
           data-test="Map.Editor.PopupTemplate"
           disabled={!options.popup.enabled}
           rows={4}
-          placeholder="Default template"
+          placeholder="默认模板"
           defaultValue={options.popup.template}
           onChange={event => onOptionsChangeDebounced({ popup: { template: event.target.value } })}
         />

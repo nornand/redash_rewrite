@@ -29,7 +29,7 @@ export default function QuerySelector(props) {
   const [selectedQuery, setSelectedQuery] = useState();
   const [doSearch, searchResults, searching] = useSearchResults(search, { initialResults: [] });
 
-  const placeholder = "Search a query by name";
+  const placeholder = "搜索对应的查询...";
   const clearIcon = <i className="fa fa-times hide-in-percy" onClick={() => selectQuery(null)} />;
   const spinIcon = <i className={cx("fa fa-spinner fa-pulse hide-in-percy", { hidden: !searching })} />;
 
@@ -50,7 +50,7 @@ export default function QuerySelector(props) {
       query = find(searchResults, { id: queryId });
       if (!query) {
         // shouldn't happen
-        notification.error("Something went wrong...", "Couldn't select query");
+        notification.error("出了点问题...", "查询失败");
       }
     }
 
@@ -61,7 +61,7 @@ export default function QuerySelector(props) {
 
   function renderResults() {
     if (!searchResults.length) {
-      return <div className="text-muted">No results matching search term.</div>;
+      return <div className="text-muted">未找到匹配的查询。</div>;
     }
 
     return (

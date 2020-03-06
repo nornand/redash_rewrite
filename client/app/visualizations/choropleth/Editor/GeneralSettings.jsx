@@ -41,23 +41,23 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
     <React.Fragment>
       <Section>
         <Select
-          label="Map type"
+          label="地图类型"
           className="w-100"
           data-test="Choropleth.Editor.MapType"
           defaultValue={options.mapType}
           onChange={mapType => handleChangeAndInferType({ mapType })}>
           <Select.Option key="countries" data-test="Choropleth.Editor.MapType.Countries">
-            Countries
+            国家
           </Select.Option>
           <Select.Option key="subdiv_japan" data-test="Choropleth.Editor.MapType.Japan">
-            Japan/Prefectures
+            日本/地方行政区域
           </Select.Option>
         </Select>
       </Section>
 
       <Section>
         <Select
-          label="Key column"
+          label="区域键值所在列"
           className="w-100"
           data-test="Choropleth.Editor.KeyColumn"
           defaultValue={options.countryCodeColumn}
@@ -72,7 +72,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
 
       <Section>
         <Select
-          label="Key type"
+          label="区域键值类型"
           className="w-100"
           data-test="Choropleth.Editor.KeyType"
           value={options.countryCodeType}
@@ -87,7 +87,7 @@ export default function GeneralSettings({ options, data, onOptionsChange }) {
 
       <Section>
         <Select
-          label="Value column"
+          label="目标值所在列"
           className="w-100"
           data-test="Choropleth.Editor.ValueColumn"
           defaultValue={options.valueColumn}

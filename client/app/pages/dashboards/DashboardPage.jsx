@@ -80,10 +80,10 @@ function RefreshButton({ dashboardOptions }) {
   };
   return (
     <Button.Group>
-      <Tooltip title={refreshRate ? `Auto Refreshing every ${durationHumanize(refreshRate)}` : null}>
+      <Tooltip title={refreshRate ? `自动刷新频率 ${durationHumanize(refreshRate)}` : null}>
         <Button type={buttonType(refreshRate)} onClick={() => refreshDashboard()}>
           <i className={cx("zmdi zmdi-refresh m-r-5", { "zmdi-hc-spin": refreshing })} />
-          {refreshRate ? durationHumanize(refreshRate) : "Refresh"}
+          {refreshRate ? durationHumanize(refreshRate) : "刷新"}
         </Button>
       </Tooltip>
       <Dropdown
@@ -96,7 +96,7 @@ function RefreshButton({ dashboardOptions }) {
                 {durationHumanize(option)}
               </Menu.Item>
             ))}
-            {refreshRate && <Menu.Item key={null}>Disable auto refresh</Menu.Item>}
+            {refreshRate && <Menu.Item key={null}>禁用自动刷新</Menu.Item>}
           </Menu>
         }>
         <Button className="icon-button hidden-xs" type={buttonType(refreshRate)}>
@@ -125,11 +125,12 @@ function DashboardMoreOptionsButton({ dashboardOptions }) {
 
   const archive = () => {
     Modal.confirm({
-      title: "Archive Dashboard",
-      content: `Are you sure you want to archive the "${dashboard.name}" dashboard?`,
-      okText: "Archive",
+      title: "仪表盘归档",
+      content: `你确定要将仪表盘"${dashboard.name}" 归档?`,
+      okText: "归档",
       okType: "danger",
       onOk: archiveDashboard,
+      cancelText: "取消",
       maskClosable: true,
       autoFocusButton: null,
     });
@@ -142,20 +143,20 @@ function DashboardMoreOptionsButton({ dashboardOptions }) {
       overlay={
         <Menu data-test="DashboardMoreButtonMenu">
           <Menu.Item className={cx({ hidden: gridDisabled })}>
-            <a onClick={() => setEditingLayout(true)}>Edit</a>
+            <a onClick={() => setEditingLayout(true)}>编辑</a>
           </Menu.Item>
           {clientConfig.showPermissionsControl && isDashboardOwnerOrAdmin && (
             <Menu.Item>
-              <a onClick={managePermissions}>Manage Permissions</a>
+              <a onClick={managePermissions}>权限管理</a>
             </Menu.Item>
           )}
           {!dashboard.is_draft && (
             <Menu.Item>
-              <a onClick={togglePublished}>Unpublish</a>
+              <a onClick={togglePublished}>撤销发布</a>
             </Menu.Item>
           )}
           <Menu.Item>
-            <a onClick={archive}>Archive</a>
+            <a onClick={archive}>归档</a>
           </Menu.Item>
         </Menu>
       }>
@@ -190,20 +191,20 @@ function DashboardControl({ dashboardOptions }) {
         <span className="hidden-print">
           {showPublishButton && (
             <Button className="m-r-5 hidden-xs" onClick={togglePublished}>
-              <span className="fa fa-paper-plane m-r-5" /> Publish
+              <span className="fa fa-paper-plane m-r-5" /> 发布
             </Button>
           )}
           {showRefreshButton && <RefreshButton dashboardOptions={dashboardOptions} />}
           <span className="hidden-xs">
             {showFullscreenButton && (
-              <Tooltip title="Enable/Disable Fullscreen display">
+              <Tooltip title="启用/禁用全屏展示">
                 <Button type={buttonType(fullscreen)} className="icon-button m-l-5" onClick={toggleFullscreen}>
                   <i className="zmdi zmdi-fullscreen" />
                 </Button>
               </Tooltip>
             )}
             {showShareButton && (
-              <Tooltip title="Dashboard Sharing Options">
+              <Tooltip title="分享仪表盘">
                 <Button
                   className="icon-button m-l-5"
                   type={buttonType(dashboard.publicAccessEnabled)}
@@ -229,17 +230,17 @@ function DashboardEditControl({ dashboardOptions }) {
   const { setEditingLayout, doneBtnClickedWhileSaving, dashboardStatus, retrySaveDashboardLayout } = dashboardOptions;
   let status;
   if (dashboardStatus === DashboardStatusEnum.SAVED) {
-    status = <span className="save-status">Saved</span>;
+    status = <span className="save-status">保存成功</span>;
   } else if (dashboardStatus === DashboardStatusEnum.SAVING) {
     status = (
       <span className="save-status" data-saving>
-        Saving
+        保存中
       </span>
     );
   } else {
     status = (
       <span className="save-status" data-error>
-        Saving Failed
+        保存失败
       </span>
     );
   }
@@ -248,11 +249,11 @@ function DashboardEditControl({ dashboardOptions }) {
       {status}
       {dashboardStatus === DashboardStatusEnum.SAVING_FAILED ? (
         <Button type="primary" onClick={retrySaveDashboardLayout}>
-          Retry
+          重试
         </Button>
       ) : (
         <Button loading={doneBtnClickedWhileSaving} type="primary" onClick={() => setEditingLayout(false)}>
-          {!doneBtnClickedWhileSaving && <i className="fa fa-check m-r-5" />} Done Editing
+          {!doneBtnClickedWhileSaving && <i className="fa fa-check m-r-5" />} 编辑完成
         </Button>
       )}
     </div>
@@ -270,7 +271,7 @@ function DashboardSettings({ dashboardOptions }) {
       <Checkbox
         checked={!!dashboard.dashboard_filters_enabled}
         onChange={({ target }) => updateDashboard({ dashboard_filters_enabled: target.checked })}>
-        Use Dashboard Level Filters
+        使用仪表盘层级过滤
       </Checkbox>
     </div>
   );
@@ -287,16 +288,15 @@ function AddWidgetContainer({ dashboardOptions }) {
       <h2>
         <i className="zmdi zmdi-widgets" />
         <span className="hidden-xs hidden-sm">
-          Widgets are individual query visualizations or text boxes you can place on your dashboard in various
-          arrangements.
+          您可以将可视化查询组件或文本框添加至仪表盘。
         </span>
       </h2>
       <div>
         <Button className="m-r-15" onClick={showAddTextboxDialog} data-test="AddTextboxButton">
-          Add Textbox
+          添加文本框
         </Button>
         <Button type="primary" onClick={showAddWidgetDialog} data-test="AddWidgetButton">
-          Add Widget
+          添加组件
         </Button>
       </div>
     </div>
