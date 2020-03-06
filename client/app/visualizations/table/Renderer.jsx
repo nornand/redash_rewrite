@@ -20,7 +20,7 @@ export default function Renderer({ options, data, context }) {
   const tableColumns = useMemo(() => {
     const searchInput =
       searchColumns.length > 0 ? (
-        <Input.Search ref={searchInputRef} placeholder="Search..." onChange={onSearchInputChange} />
+        <Input.Search ref={searchInputRef} placeholder="搜索..." onChange={onSearchInputChange} />
       ) : null;
 
     return prepareColumns(options.columns, searchInput, orderBy, newOrderBy => {

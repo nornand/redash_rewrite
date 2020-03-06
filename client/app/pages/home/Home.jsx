@@ -87,7 +87,7 @@ function FavoriteList({ title, resource, itemUrl, emptyState }) {
                 <i className="fa fa-star" aria-hidden="true" />
               </span>
               {item.name}
-              {item.is_draft && <span className="label label-default m-l-5">Unpublished</span>}
+              {item.is_draft && <span className="label label-default m-l-5">未发布</span>}
             </a>
           ))}
         </div>

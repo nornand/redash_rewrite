@@ -71,10 +71,10 @@ function modelTagsControl({ archivedTooltip }) {
   function ModelTagsControl({ isDraft, isArchived, ...props }) {
     return (
       <TagsControl {...props}>
-        {!isArchived && isDraft && <span className="label label-tag-unpublished">Unpublished</span>}
+        {!isArchived && isDraft && <span className="label label-tag-unpublished">未发布</span>}
         {isArchived && (
           <Tooltip placement="right" title={archivedTooltip}>
-            <span className="label label-tag-archived">Archived</span>
+            <span className="label label-tag-archived">归档</span>
           </Tooltip>
         )}
       </TagsControl>
@@ -95,9 +95,9 @@ function modelTagsControl({ archivedTooltip }) {
 }
 
 export const QueryTagsControl = modelTagsControl({
-  archivedTooltip: "This query is archived and can't be used in dashboards, or appear in search results.",
+  archivedTooltip: "这个查询已归档,将无法在仪表盘中使用，而且不会被搜索到。",
 });
 
 export const DashboardTagsControl = modelTagsControl({
-  archivedTooltip: "This dashboard is archived and won't be listed in dashboards nor search results.",
+  archivedTooltip: "这个仪表盘已归档，将不会在仪表盘列表中展现，而且无法被搜索到。",
 });

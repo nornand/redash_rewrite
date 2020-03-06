@@ -43,7 +43,7 @@ class QueriesList extends React.Component {
     {
       key: "archive",
       href: "queries/archive",
-      title: "已保存",
+      title: "已归档",
       icon: () => <Sidebar.MenuIcon icon="fa fa-archive" />,
     },
     {
@@ -175,7 +175,7 @@ export default [
   }),
   routeWithUserSession({
     path: "/queries/archive",
-    title: "已保存的查询",
+    title: "已归档的查询",
     render: pageProps => <QueriesListPage {...pageProps} currentPage="archive" />,
   }),
   routeWithUserSession({

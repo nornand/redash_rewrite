@@ -7,18 +7,19 @@ import notification from "@/services/notification";
 function confirmArchive() {
   return new Promise((resolve, reject) => {
     Modal.confirm({
-      title: "Archive Query",
+      title: "将查询归档",
       content: (
         <React.Fragment>
-          <div className="m-b-5">Are you sure you want to archive this query?</div>
-          <div>All alerts and dashboard widgets created with its visualizations will be deleted.</div>
+          <div className="m-b-5">你确定要将这个查询归档吗?</div>
+          <div>所有使用这个查询的仪表盘和提醒都将被删除。</div>
         </React.Fragment>
       ),
-      okText: "Archive",
+      okText: "归档",
       okType: "danger",
       onOk: () => {
         resolve();
       },
+      cancelText: "取消",
       onCancel: () => {
         reject();
       },

@@ -11,7 +11,7 @@ function addOnlineListener(notificationKey) {
 export default {
   init() {
     window.addEventListener("offline", () => {
-      notification.warning("Please check your Internet connection.", null, {
+      notification.warning("请检查你的网络连接。", null, {
         key: "connectionNotification",
         duration: null,
       });

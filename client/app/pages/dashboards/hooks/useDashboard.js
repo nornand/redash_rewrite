@@ -74,11 +74,11 @@ function useDashboard(dashboardData) {
         .catch(error => {
           const status = get(error, "response.status");
           if (status === 403) {
-            notification.error("Dashboard update failed", "Permission Denied.");
+            notification.error("仪表盘更新失败", "拒绝访问。");
           } else if (status === 409) {
             notification.error(
-              "It seems like the dashboard has been modified by another user. ",
-              "Please copy/backup your changes and reload this page.",
+              "这个仪表盘好像在被其他用户修改。",
+              "请复制/备份你的修改并重新加载这个页面。",
               { duration: null }
             );
           }

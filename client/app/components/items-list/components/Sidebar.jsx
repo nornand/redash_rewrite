@@ -33,7 +33,7 @@ SearchInput.propTypes = {
 };
 
 SearchInput.defaultProps = {
-  placeholder: "Search...",
+  placeholder: "搜索...",
   showIcon: false,
 };
 
@@ -149,7 +149,7 @@ export function PageSizeSelect({ options, value, onChange, ...props }) {
       <Select className="w-100" defaultValue={value} onChange={onChange}>
         {map(options, option => (
           <Select.Option key={option} value={option}>
-            {option} results
+            {option} 条结果
           </Select.Option>
         ))}
       </Select>

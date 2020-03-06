@@ -13,17 +13,17 @@ export default function QueriesListEmptyState({ page, searchTerm, selectedTags }
   }
   switch (page) {
     case "favorites":
-      return <BigMessage message="Mark queries as Favorite to list them here." icon="fa-star" />;
+      return <BigMessage message="收藏的查询将在这里展示。" icon="fa-star" />;
     case "archive":
-      return <BigMessage message="Archived queries will be listed here." icon="fa-archive" />;
+      return <BigMessage message="已归档的查询将在这里展示。" icon="fa-archive" />;
     case "my":
       return (
         <div className="tiled bg-white p-15">
           <a href="queries/new" className="btn btn-primary btn-sm">
-            Create your first query
+            创建你的第一个查询
           </a>{" "}
-          to populate My Queries list. Need help? Check out our{" "}
-          <a href="https://redash.io/help/user-guide/querying/writing-queries">query writing documentation</a>.
+          。需要帮忙? 查看{" "}
+          <a href="https://redash.io/help/user-guide/querying/writing-queries">帮助文档</a>。
         </div>
       );
     default:
@@ -31,7 +31,7 @@ export default function QueriesListEmptyState({ page, searchTerm, selectedTags }
         <EmptyState
           icon="fa fa-code"
           illustration="query"
-          description="Getting the data from your datasources."
+          description="从你的数据集中获取数据。"
           helpLink="https://help.redash.io/category/21-querying"
         />
       );

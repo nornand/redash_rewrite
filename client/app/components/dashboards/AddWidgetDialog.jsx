@@ -110,7 +110,7 @@ class AddWidgetDialog extends React.Component {
             defaultValue={first(this.state.selectedQuery.visualizations).id}
             onChange={visualizationId => this.selectVisualization(this.state.selectedQuery, visualizationId)}>
             {visualizationGroups.map(visualizations => (
-              <OptGroup label={visualizations[0].type} key={visualizations[0].type}>
+              <OptGroup label={visualizations[0].name} key={visualizations[0].type}>
                 {visualizations.map(visualization => (
                   <Option value={visualization.id} key={visualization.id}>
                     {visualization.name}

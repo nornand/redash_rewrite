@@ -97,7 +97,7 @@ export default function QueryPageHeader({
         {
           archive: {
             isAvailable: !queryFlags.isNew && queryFlags.canEdit && !queryFlags.isArchived,
-            title: "Archive",
+            title: "归档",
             onClick: archiveQuery,
           },
           managePermissions: {
