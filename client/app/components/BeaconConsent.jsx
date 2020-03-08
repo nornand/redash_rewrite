@@ -25,7 +25,7 @@ function BeaconConsent() {
     let message = "🙏 Thank you.";
 
     if (!confirm) {
-      message = "Settings Saved.";
+      message = "设置已保存。";
     }
 
     OrgSettings.save({ beacon_consent: confirm }, message)

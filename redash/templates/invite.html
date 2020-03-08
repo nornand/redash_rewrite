@@ -1,6 +1,6 @@
 {% extends "layouts/signed_out.html" %}
 
-{% block title %}Welcome to Redash!{% endblock %}
+{% block title %}欢迎来到Redash!{% endblock %}
 
 {% block content %}
 <div class="fixed-width-page">
@@ -9,7 +9,7 @@
       {% if show_google_openid or show_saml_login or show_remote_user_login or show_ldap_login %}
         To create your account, please choose a password or login with your SSO provider.
       {% else %}
-        To create your account, please choose a password.
+        请设置密码来创建你的用户。
       {% endif %}
     </div>
 

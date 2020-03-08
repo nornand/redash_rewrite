@@ -4,6 +4,8 @@ import { axios } from "@/services/axios";
 import notification from "@/services/notification";
 import { clientConfig } from "@/services/auth";
 
+const PROFILE_IMAGE_URL = "/static/images/user_image.png";
+
 function getErrorMessage(error) {
   return find([get(error, "response.data.message"), get(error, "response.statusText"), "Unknown error"], isString);
 }
@@ -20,7 +22,8 @@ function enableUser(user) {
     .then(data => {
       notification.success(`User ${userName} is now enabled.`);
       user.is_disabled = false;
-      user.profile_image_url = data.profile_image_url;
+      // user.profile_image_url = data.profile_image_url;  修改为静态图片 --20200306
+      user.profile_image_url = PROFILE_IMAGE_URL;
       return data;
     })
     .catch(error => {
@@ -33,9 +36,10 @@ function disableUser(user) {
   return axios
     .post(disableResource(user))
     .then(data => {
-      notification.warning(`User ${userName} is now disabled.`);
+      notification.warning(`用户${userName}已禁用。`);
       user.is_disabled = true;
-      user.profile_image_url = data.profile_image_url;
+      // user.profile_image_url = data.profile_image_url; 修改为静态图片 --20200306
+      user.profile_image_url = PROFILE_IMAGE_URL; 
       return data;
     })
     .catch(error => {
@@ -48,7 +52,7 @@ function deleteUser(user) {
   return axios
     .delete(`api/users/${user.id}`)
     .then(data => {
-      notification.warning(`User ${userName} has been deleted.`);
+      notification.warning(`用户${userName}已删除。`);
       return data;
     })
     .catch(error => {

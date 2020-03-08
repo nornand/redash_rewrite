@@ -105,7 +105,7 @@ function EmptyState({
             <Step
               show={isAvailable.dataSource}
               completed={isCompleted.dataSource}
-              text="Ask an account admin to connect a data source"
+              text="向管理员请求连接数据"
             />
           )}
           <Step

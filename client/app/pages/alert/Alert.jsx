@@ -111,12 +111,12 @@ class Alert extends React.Component {
 
     return AlertService.save(alert)
       .then(alert => {
-        notification.success("Saved.");
+        notification.success("已保存。");
         navigateTo(`alerts/${alert.id}`, true);
         this.setState({ alert, mode: MODES.VIEW });
       })
       .catch(() => {
-        notification.error("Failed saving alert.");
+        notification.error("保存失败。");
       });
   };
 

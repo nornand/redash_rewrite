@@ -5,7 +5,7 @@ import BigMessage from "@/components/BigMessage";
 export default function EmptyState(props) {
   return (
     <div className="text-center">
-      <BigMessage icon="fa-search" message="Sorry, we couldn't find anything." {...props} />
+      <BigMessage icon="fa-search" message="对不起,我们什么也没查到。" {...props} />
     </div>
   );
 }

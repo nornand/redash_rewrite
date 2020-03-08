@@ -69,7 +69,7 @@ class ChangePasswordDialog extends React.Component {
 
           User.save(userData)
             .then(() => {
-              notification.success("Saved.");
+              notification.success("已保存。");
               this.props.dialog.close({ success: true });
             })
             .catch(error => {

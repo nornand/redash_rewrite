@@ -62,7 +62,7 @@ class CreateSourceDialog extends React.Component {
       this.props
         .onCreate(selectedType, values)
         .then(data => {
-          successCallback("Saved.");
+          successCallback("已保存。");
           this.props.dialog.close({ success: true, data });
         })
         .catch(error => {

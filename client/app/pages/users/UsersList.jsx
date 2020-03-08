@@ -142,14 +142,14 @@ class UsersList extends React.Component {
   createUser = values =>
     User.create(values)
       .then(user => {
-        notification.success("Saved.");
+        notification.success("已保存。");
         if (user.invite_link) {
           Modal.warning({
-            title: "Email not sent!",
+            title: "邮件未发送!",
             content: (
               <React.Fragment>
                 <p>
-                  The mail server is not configured, please send the following link to <b>{user.name}</b>:
+                  邮箱服务未配置,请将以下链接发送给<b>{user.name}</b>:
                 </p>
                 <InputWithCopy value={absoluteUrl(user.invite_link)} readOnly />
               </React.Fragment>

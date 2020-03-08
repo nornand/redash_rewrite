@@ -41,9 +41,9 @@ class EditDestination extends React.Component {
     const { destination } = this.state;
     helper.updateTargetWithValues(destination, values);
     Destination.save(destination)
-      .then(() => successCallback("Saved."))
+      .then(() => successCallback("已保存。"))
       .catch(error => {
-        const message = get(error, "response.data.message", "Failed saving.");
+        const message = get(error, "response.data.message", "保存失败。");
         errorCallback(message);
       });
   };
