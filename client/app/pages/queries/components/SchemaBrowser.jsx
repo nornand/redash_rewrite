@@ -36,7 +36,7 @@ function SchemaItem({ item, expanded, onToggle, onSelect, ...props }) {
       <div className="table-name" onClick={onToggle}>
         <i className="fa fa-table m-r-5" />
         <strong>
-          <span title="{{table.name}}">{item.name}</span>
+          <span title="{{item.name}}">{item.name}</span>
           {!isNil(item.size) && <span> ({item.size})</span>}
         </strong>
         <i
@@ -46,10 +46,24 @@ function SchemaItem({ item, expanded, onToggle, onSelect, ...props }) {
         />
       </div>
       {expanded && (
+        // 增加字段描述 20200309
+        // <div>
+        //   {map(item.columns, column => (
+        //     <div key={column} className="table-open">
+        //       {column}
+        //       <i
+        //         className="fa fa-angle-double-right copy-to-editor"
+        //         aria-hidden="true"
+        //         onClick={e => handleSelect(e, column)}
+        //       />
+        //     </div>
+        //   ))}
+        // </div>
         <div>
-          {map(item.columns, column => (
+          {map(item.columns, (column,index) => (
             <div key={column} className="table-open">
-              {column}
+              { column }
+              { item.comments[index]&& <span>:{item.comments[index]}</span>}
               <i
                 className="fa fa-angle-double-right copy-to-editor"
                 aria-hidden="true"

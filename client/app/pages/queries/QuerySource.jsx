@@ -276,6 +276,11 @@ function QuerySource(props) {
                         shortcut: "mod+shift+f",
                         onClick: formatQuery,
                       }}
+                      editQueryVisualProps={{
+                        title: "查询可视化编辑",
+                        shortcut: "mod+shift+q",
+                        onClick: openAddNewParameterDialog,
+                      }}
                       saveButtonProps={
                         queryFlags.canEdit && {
                           text: (

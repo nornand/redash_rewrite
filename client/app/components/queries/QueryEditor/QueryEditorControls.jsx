@@ -35,6 +35,7 @@ ButtonTooltip.defaultProps = {
 export default function EditorControl({
   addParameterButtonProps,
   formatButtonProps,
+  editQueryVisualProps, //增加query 可视化编辑页面
   saveButtonProps,
   executeButtonProps,
   autocompleteToggleProps,
@@ -42,7 +43,7 @@ export default function EditorControl({
 }) {
   useEffect(() => {
     const buttons = filter(
-      [addParameterButtonProps, formatButtonProps, saveButtonProps, executeButtonProps],
+      [addParameterButtonProps, formatButtonProps, editQueryVisualProps, saveButtonProps, executeButtonProps],
       b => b.shortcut && !b.disabled && isFunction(b.onClick)
     );
     if (buttons.length > 0) {
@@ -52,7 +53,7 @@ export default function EditorControl({
         KeyboardShortcuts.unbind(shortcuts);
       };
     }
-  }, [addParameterButtonProps, formatButtonProps, saveButtonProps, executeButtonProps]);
+  }, [addParameterButtonProps, formatButtonProps, editQueryVisualProps, saveButtonProps, executeButtonProps]);
 
   return (
     <div className="query-editor-controls">
@@ -74,6 +75,17 @@ export default function EditorControl({
             onClick={formatButtonProps.onClick}>
             <span className="zmdi zmdi-format-indent-increase" />
             {formatButtonProps.text}
+          </Button>
+        </ButtonTooltip>
+      )}
+      {editQueryVisualProps !== false && (
+        <ButtonTooltip title={editQueryVisualProps.title} shortcut={editQueryVisualProps.shortcut}>
+          <Button
+            className="query-editor-controls-button m-r-5"
+            disabled={editQueryVisualProps.disabled}
+            onClick={editQueryVisualProps.onClick}>
+            <span className="fa fa-th-list" />
+            {editQueryVisualProps.text}
           </Button>
         </ButtonTooltip>
       )}
@@ -143,6 +155,7 @@ const ButtonPropsPropType = PropTypes.oneOfType([
 EditorControl.propTypes = {
   addParameterButtonProps: ButtonPropsPropType,
   formatButtonProps: ButtonPropsPropType,
+  editQueryVisualProps: ButtonPropsPropType,
   saveButtonProps: ButtonPropsPropType,
   executeButtonProps: ButtonPropsPropType,
   autocompleteToggleProps: PropTypes.oneOfType([
@@ -172,6 +185,7 @@ EditorControl.propTypes = {
 EditorControl.defaultProps = {
   addParameterButtonProps: false,
   formatButtonProps: false,
+  editQueryVisualProps: false,
   saveButtonProps: false,
   executeButtonProps: false,
   autocompleteToggleProps: false,

@@ -204,8 +204,12 @@ class DataSource(BelongsToOrgMixin, db.Model):
         return out_schema
 
     def _sort_schema(self, schema):
+        # return [
+        #     {"name": i["name"], "columns": sorted(i["columns"])}
+        #     for i in sorted(schema, key=lambda x: x["name"])
+        # ]
         return [
-            {"name": i["name"], "columns": sorted(i["columns"])}
+            {"name": i["name"], "columns": i["columns"], "comments": i["comments"]}
             for i in sorted(schema, key=lambda x: x["name"])
         ]
 

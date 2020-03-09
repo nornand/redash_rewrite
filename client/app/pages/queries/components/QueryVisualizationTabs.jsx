@@ -76,7 +76,7 @@ TabWithDeleteButton.defaultProps = { canDelete: false, onDelete: () => {} };
 const defaultVisualizations = [
   {
     type: "TABLE",
-    name: "Table",
+    name: "表格",
     id: null,
     options: {},
   },
