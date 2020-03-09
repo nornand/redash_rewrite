@@ -40,6 +40,24 @@ moment.updateLocale("en", {
   },
 });
 
+moment.updateLocale("zh-cn", {
+  relativeTime: {
+    future: "%s",
+    past: "%s",
+    s: "刚刚",
+    m: "一分钟之前",
+    mm: "%d分钟之前",
+    h: "一小时之前",
+    hh: "%d小时之前",
+    d: "一天之前",
+    dd: "%d天之前",
+    M: "一个月之前",
+    MM: "%d月之前",
+    y: "一年之前",
+    yy: "%d年之前",
+  },
+});
+
 function requireImages() {
   // client/app/assets/images/<path> => /images/<path>
   const ctx = require.context("@/assets/images/", true, /\.(png|jpe?g|gif|svg)$/);

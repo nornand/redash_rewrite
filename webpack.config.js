@@ -49,7 +49,9 @@ const config = {
   plugins: [
     new WebpackBuildNotifierPlugin({ title: "Redash" }),
     // bundle only default `moment` locale (`en`)
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
+    // new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
+    // change the moment locale to ('zh-cn') 20200309
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
     new HtmlWebpackPlugin({
       template: "./client/app/index.html",
       filename: "index.html",

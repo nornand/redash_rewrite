@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import EditQueryVisualDialog from "@/components/EditQueryVisualDialog";
 
-export default function useAddNewParameterDialog(query, onParameterAdded) {
+export default function useAddNewParameterDialog(query) {
   return useCallback(() => {
     EditQueryVisualDialog.showModal({
       parameter: {
