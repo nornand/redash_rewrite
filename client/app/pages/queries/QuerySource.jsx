@@ -93,7 +93,7 @@ function QuerySource(props) {
   }, [query.name]);
 
   const updateQuery = useUpdateQuery(query, setQuery);
-  const updateQueryDescription = useUpdateQueryDescription(query, setQuery);
+  const updateQueryDescription = useUpdateQueryDescription(query);
   const formatQuery = useFormatQuery(query, dataSource ? dataSource.syntax : null, setQuery);
 
   const handleDataSourceChange = useCallback(
@@ -140,7 +140,7 @@ function QuerySource(props) {
     }
     setQuery(newQuery);
   });
-  // const openAddQueryVisualDialog = useAddQueryVisualDialog();
+  const openAddQueryVisualDialog = useAddQueryVisualDialog(schema);
   const handleSchemaItemSelect = useCallback(schemaItem => {
     if (editorRef.current) {
       editorRef.current.paste(schemaItem);
@@ -280,7 +280,7 @@ function QuerySource(props) {
                       editQueryVisualProps={{
                         title: "查询可视化编辑",
                         shortcut: "mod+shift+q",
-                        onClick: useAddQueryVisualDialog,
+                        onClick: openAddQueryVisualDialog,
                       }}
                       saveButtonProps={
                         queryFlags.canEdit && {

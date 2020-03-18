@@ -173,9 +173,11 @@ class User(
         if self._profile_image_url is not None:
             return self._profile_image_url
 
-        email_md5 = hashlib.md5(self.email.lower().encode()).hexdigest()
+        # email_md5 = hashlib.md5(self.email.lower().encode()).hexdigest()
         # return "https://www.gravatar.com/avatar/{}?s=40&d=identicon".format(email_md5)
-        return "/static/images/user_image.png"
+        assets = app.extensions["webpack"]["assets"] or {}
+        path = "images/avatar.svg"
+        return url_for("static", filename=assets.get(path, path))
 
     @property
     def permissions(self):
