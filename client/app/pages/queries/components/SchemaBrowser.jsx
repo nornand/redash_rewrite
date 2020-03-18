@@ -63,7 +63,7 @@ function SchemaItem({ item, expanded, onToggle, onSelect, ...props }) {
           {map(item.columns, (column,index) => (
             <div key={column} className="table-open">
               { column }
-              { item.comments[index]&& <span>:{item.comments[index]}</span>}
+              { item.comments && item.comments[index] && <span>:{item.comments[index]}</span>}
               <i
                 className="fa fa-angle-double-right copy-to-editor"
                 aria-hidden="true"

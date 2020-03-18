@@ -41,9 +41,9 @@ class ShareDashboardDialog extends React.Component {
   static get headerContent() {
     return (
       <React.Fragment>
-        Share Dashboard
+        分享仪表盘
         <div className="modal-header-desc">
-          Allow public access to this dashboard with a secret address. <HelpTrigger type="SHARE_DASHBOARD" />
+          允许使用私密地址访问此仪表盘。 <HelpTrigger type="SHARE_DASHBOARD" />
         </div>
       </React.Fragment>
     );
@@ -107,7 +107,7 @@ class ShareDashboardDialog extends React.Component {
               />
             </Form.Item>
           )}
-          <Form.Item label="Allow public access" {...this.formItemProps}>
+          <Form.Item label="允许公开访问" {...this.formItemProps}>
             <Switch
               checked={dashboard.publicAccessEnabled}
               onChange={this.onChange}
@@ -117,7 +117,7 @@ class ShareDashboardDialog extends React.Component {
             />
           </Form.Item>
           {dashboard.public_url && (
-            <Form.Item label="Secret address" {...this.formItemProps}>
+            <Form.Item label="访问地址" {...this.formItemProps}>
               <InputWithCopy value={dashboard.public_url} data-test="SecretAddress" />
             </Form.Item>
           )}

@@ -209,7 +209,10 @@ class DataSource(BelongsToOrgMixin, db.Model):
         #     for i in sorted(schema, key=lambda x: x["name"])
         # ]
         return [
-            {"name": i["name"], "columns": i["columns"], "comments": i["comments"]}
+            { "name": i["name"], 
+              "columns": i["columns"], 
+              "comments": i["comments"] if "comments" in i.key() else []
+            }
             for i in sorted(schema, key=lambda x: x["name"])
         ]
 

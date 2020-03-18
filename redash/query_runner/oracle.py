@@ -1,7 +1,12 @@
+# -*- coding: utf-8 -*-
 import logging
 
 from redash.utils import json_dumps, json_loads
 from redash.query_runner import *
+
+#支持中文
+import os
+os.environ['NLS_LANG'] = 'SIMPLIFIED CHINESE_CHINA.UTF8'
 
 try:
     import cx_Oracle
@@ -76,13 +81,23 @@ class Oracle(BaseSQLQueryRunner):
         )
 
     def _get_tables(self, schema):
+        # query = """
+        # SELECT
+        #     all_tab_cols.OWNER,
+        #     all_tab_cols.TABLE_NAME,
+        #     all_tab_cols.COLUMN_NAME
+        # FROM all_tab_cols
+        # WHERE all_tab_cols.OWNER NOT IN('SYS','SYSTEM','ORDSYS','CTXSYS','WMSYS','MDSYS','ORDDATA','XDB','OUTLN','DMSYS','DSSYS','EXFSYS','LBACSYS','TSMSYS')
+        # """
         query = """
-        SELECT
-            all_tab_cols.OWNER,
-            all_tab_cols.TABLE_NAME,
-            all_tab_cols.COLUMN_NAME
-        FROM all_tab_cols
-        WHERE all_tab_cols.OWNER NOT IN('SYS','SYSTEM','ORDSYS','CTXSYS','WMSYS','MDSYS','ORDDATA','XDB','OUTLN','DMSYS','DSSYS','EXFSYS','LBACSYS','TSMSYS')
+        SELECT 
+            '' AS OWNER,
+            t.TABLE_NAME,
+            t.COLUMN_NAME,
+            c.COMMENTS
+        FROM user_tab_cols t
+        LEFT JOIN user_col_comments c ON t.TABLE_NAME = c.TABLE_NAME
+        AND t.COLUMN_NAME = c.COLUMN_NAME
         """
 
         results, error = self.run_query(query, None)
@@ -99,9 +114,10 @@ class Oracle(BaseSQLQueryRunner):
                 table_name = row["TABLE_NAME"]
 
             if table_name not in schema:
-                schema[table_name] = {"name": table_name, "columns": []}
+                schema[table_name] = {"name": table_name, "columns": [], "comments":[]}
 
             schema[table_name]["columns"].append(row["COLUMN_NAME"])
+            schema[table_name]["comments"].append(row["COMMENTS"])
 
         return list(schema.values())
 

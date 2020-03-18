@@ -33,6 +33,7 @@ import useDataSourceSchema from "./hooks/useDataSourceSchema";
 import useQueryFlags from "./hooks/useQueryFlags";
 import useQueryParameters from "./hooks/useQueryParameters";
 import useAddNewParameterDialog from "./hooks/useAddNewParameterDialog";
+import useAddQueryVisualDialog from "./hooks/useAddQueryVisualDialog";
 import useEditScheduleDialog from "./hooks/useEditScheduleDialog";
 import useAddVisualizationDialog from "./hooks/useAddVisualizationDialog";
 import useEditVisualizationDialog from "./hooks/useEditVisualizationDialog";
@@ -139,7 +140,7 @@ function QuerySource(props) {
     }
     setQuery(newQuery);
   });
-
+  // const openAddQueryVisualDialog = useAddQueryVisualDialog();
   const handleSchemaItemSelect = useCallback(schemaItem => {
     if (editorRef.current) {
       editorRef.current.paste(schemaItem);
@@ -279,7 +280,7 @@ function QuerySource(props) {
                       editQueryVisualProps={{
                         title: "查询可视化编辑",
                         shortcut: "mod+shift+q",
-                        onClick: openAddNewParameterDialog,
+                        onClick: useAddQueryVisualDialog,
                       }}
                       saveButtonProps={
                         queryFlags.canEdit && {
